@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
 import {ChatMessage} from "./ChatMessage";;
+import { uniqueNamesGenerator, Config, adjectives, colors } from 'unique-names-generator';
+
+const customConfig: Config = {
+  dictionaries: [adjectives, colors],
+  separator: '-',
+  length: 2,
+};
 
 @Component({
   selector: 'app-root',
@@ -15,12 +22,11 @@ export class AppComponent {
   public clients: string[] = []
 
   toScreen($event: ChatMessage) {
-    console.log($event.name + ": " + $event.message);
     this.messages.push($event);
   }
 
   addClient() {
-    this.clients.push('client_' + Math.random());
+    this.clients.push(uniqueNamesGenerator(customConfig));
   }
 
   removeClient($event: string) {

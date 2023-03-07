@@ -1,4 +1,10 @@
-<p>{{name}}</p>
-<input [(ngModel)]="lastMessage" />
-<button (click)="send()">Send</button>
-<button (click)="removeClient()">RemoveClient</button>
+<div class="rounded border p-2 flex flex-col bg-opacity-50"  style="background-color: hsl({{color}}deg {{saturation}}% 45%);">
+  <div class=" text-center" style="background-color: hsl({{color}}deg {{saturation}}% 50%);">{{name}}</div>
+  <div class="">
+  <input [(ngModel)]="lastMessage" class="border"/>
+  </div>
+  <div class="">
+    <button (click)="send()" class="p-2 m-2 border-2 rounded">Send</button>
+    <button (click)="removeClient()" class="p-2 m-2 border-2 rounded">RemoveClient</button>
+  </div>
+</div>

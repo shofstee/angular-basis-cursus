@@ -1,9 +1,25 @@
 
-<h1 class="font-thin underline" >
-  Hello world!
-</h1>
-<app-chat-screen [messages]="messages"></app-chat-screen>
-<div *ngFor="let client of clients">
-  <app-chat-client (lastMessageEmitter)="toScreen($event)" (removeClientEmitter)="removeClient($event)" name="{{client}}"></app-chat-client>
+
+<div class="flex">
+  <div class="flex-col col-span-2">
+
+  </div>
+  <div class="flex-col">
+    <div class="flex-row flex-auto">
+      <button (click)="addClient()" class="bg-slate-300 m-4 p-4 flex-auto">Add client</button>
+    </div>
+      <ng-container *ngFor="let client of clients">
+      <div class="flex-row">
+        <app-chat-client (lastMessageEmitter)="toScreen($event)" (removeClientEmitter)="removeClient($event)" name="{{client}}"></app-chat-client>
+    </div>
+      </ng-container>
+  </div>
+  <div class="flex-col ml-4 flex-auto border-2 h-screen">
+    <div class="flex-row h-1 text-center">
+        Chat-app
+    </div>
+    <div class="flex-row flex-auto">
+      <app-chat-screen [messages]="messages"></app-chat-screen>
+    </div>
+  </div>
 </div>
-<button (click)="addClient()">Add client</button>
