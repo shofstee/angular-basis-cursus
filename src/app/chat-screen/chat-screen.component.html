@@ -1,0 +1,7 @@
+<Ul>
+  <li *ngFor="let message of messages">
+    <ng-container>{{message.date | date}}</ng-container>
+    <ng-container>{{message.name}}</ng-container>
+    <ng-container>{{message.message}}</ng-container>
+  </li>
+</Ul>
